@@ -1,7 +1,8 @@
 from app.middleware.middleware import TimerMiddleware
 from fastapi import FastAPI
 from app.models import models
-from app.controllers import common
+from app.controllers import common,chat_controller
+
 from fastapi.middleware.cors import CORSMiddleware
 from app.db.db import engine
 
@@ -31,6 +32,7 @@ app.add_middleware(
 def create_app():
     models.Base.metadata.create_all(bind=engine)
     app.include_router(common.router, prefix="/common")
+    app.include_router(chat_controller.router, prefix="/chat")
     return app
 
 
