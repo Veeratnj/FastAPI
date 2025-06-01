@@ -4,3 +4,5 @@ sqlalchemy
 python-dotenv
 pydantic
 pydantic[email]
+agno
+openai
